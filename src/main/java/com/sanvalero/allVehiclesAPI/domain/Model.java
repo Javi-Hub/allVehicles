@@ -1,0 +1,51 @@
+package com.sanvalero.allVehiclesAPI.domain;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
+
+/**
+ * Creado por @author: Javier
+ * el 28/03/2021
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity(name = "model")
+public class Model {
+
+    @Schema(description = "Model ID", example = "3", required = true)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Schema(description = "Model of the vehicle", example = "CLA", required = true)
+    @NotBlank
+    @Column(name = "model")
+    private String name;
+
+    @Schema(description = "Units manufactured", example = "450000")
+    @Column
+    private int units;
+
+    @Schema(description = "The vehícle is available for sale", example = "true")
+    @NotBlank
+    @Column
+    private boolean available;
+
+    @Schema(description = "Price of the vehicle", example = "35500.45")
+    @Column
+    private float price;
+
+    @Schema(description = "Market launch", example = "10/10/1978")
+    @JsonFormat(pattern = "dd/MM/yyy")
+    @Column(name = "market_launch")
+    private LocalDate marketLaunch;
+
+}
