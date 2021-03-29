@@ -1,4 +1,4 @@
-package com.sanvalero.allVehiclesAPI.service.Brand;
+package com.sanvalero.allVehiclesAPI.service.brand;
 
 import com.sanvalero.allVehiclesAPI.domain.Brand;
 import com.sanvalero.allVehiclesAPI.domain.Company;
@@ -69,11 +69,6 @@ public class BrandServiceImpl implements BrandService{
         brand.setAssessment(assessment);
         return brandRepository.save(brand);
 
-    }
-
-    @Override
-    public Brand modifyBrandByAssessment(long id, float assessment) {
-        return null;
     }
 
     @Override

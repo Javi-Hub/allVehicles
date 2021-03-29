@@ -1,4 +1,4 @@
-package com.sanvalero.allVehiclesAPI.service.Vehicle;
+package com.sanvalero.allVehiclesAPI.service.vehicle;
 
 /**
  * Creado por @author: Javier

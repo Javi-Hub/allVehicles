@@ -2,7 +2,7 @@ package com.sanvalero.allVehiclesAPI.controller;
 
 import com.sanvalero.allVehiclesAPI.domain.Company;
 import com.sanvalero.allVehiclesAPI.exception.CompanyNotFoundException;
-import com.sanvalero.allVehiclesAPI.service.Company.CompanyService;
+import com.sanvalero.allVehiclesAPI.service.company.CompanyService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;

@@ -1,6 +1,5 @@
-package com.sanvalero.allVehiclesAPI.service.Company;
+package com.sanvalero.allVehiclesAPI.service.company;
 
-import com.sanvalero.allVehiclesAPI.domain.Brand;
 import com.sanvalero.allVehiclesAPI.domain.Company;
 
 import java.util.Optional;

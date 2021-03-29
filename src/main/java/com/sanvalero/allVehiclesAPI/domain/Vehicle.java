@@ -36,6 +36,10 @@ public class Vehicle {
     @Column(name = "eco_label")
     private boolean ecoLabel;
 
+    @Schema(description = "Price of the vehicle", example = "35500.45")
+    @Column
+    private float price;
+
     @Schema(description = "Fuel consumption", example = "5.8")
     @Column
     private float consumption;

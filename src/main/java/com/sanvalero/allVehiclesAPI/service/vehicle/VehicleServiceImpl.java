@@ -1,4 +1,4 @@
-package com.sanvalero.allVehiclesAPI.service.Model;
+package com.sanvalero.allVehiclesAPI.service.vehicle;
 
 import org.springframework.stereotype.Service;
 
@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
  * el 29/03/2021
  */
 @Service
-public class ModelServiceImpl implements ModelService{
+public class VehicleServiceImpl implements VehicleService{
 }

@@ -1,7 +1,6 @@
-package com.sanvalero.allVehiclesAPI.service.Brand;
+package com.sanvalero.allVehiclesAPI.service.brand;
 
 import com.sanvalero.allVehiclesAPI.domain.Brand;
-import com.sanvalero.allVehiclesAPI.domain.Company;
 import com.sanvalero.allVehiclesAPI.domain.dto.BrandDTO;
 
 import java.util.Optional;
@@ -18,6 +17,5 @@ public interface BrandService {
     Brand addBrand(long id, BrandDTO brandDTO);
     Brand modifyBrand(long id, BrandDTO brandDTO);
     Brand modifyBrandAssessment(long id, float assessment);
-    Brand modifyBrandByAssessment(long id, float assessment);
     void deleteBrand(long id);
 }
