@@ -1,5 +1,6 @@
 package com.sanvalero.allVehiclesAPI.service.Company;
 
+import com.sanvalero.allVehiclesAPI.domain.Brand;
 import com.sanvalero.allVehiclesAPI.domain.Company;
 
 import java.util.Optional;
@@ -15,6 +16,7 @@ public interface CompanyService {
     Set<Company> findCompanies();
     Company addCompany(Company company);
     Company modifyCompany(long id, Company company);
+    Company modifyCompanyBySharesStock(long id, float sharesStock);
     void deleteCompany(long id);
 
 }

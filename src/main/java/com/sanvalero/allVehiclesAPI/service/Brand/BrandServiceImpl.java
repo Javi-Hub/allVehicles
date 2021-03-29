@@ -51,11 +51,29 @@ public class BrandServiceImpl implements BrandService{
     }
 
     @Override
-    public Brand modifyBrand(long id, Brand newBrand) {
+    public Brand modifyBrand(long id, BrandDTO brandDTO) {
         Brand brand = brandRepository.findById(id)
                 .orElseThrow(() -> new BrandNotFoundException(id));
-        newBrand.setId(brand.getId());
-        return brandRepository.save(newBrand);
+        brand.setName(brandDTO.getName());
+        brand.setRanking(brandDTO.getRanking());
+        brand.setOperational(brandDTO.isOperational());
+        brand.setAssessment(brandDTO.getAssessment());
+        brand.setFoundationDate(brandDTO.getFoundationDate());
+        return brandRepository.save(brand);
+    }
+
+    @Override
+    public Brand modifyBrandAssessment(long id, float assessment) {
+        Brand brand = brandRepository.findById(id)
+                .orElseThrow(() -> new BrandNotFoundException(id));
+        brand.setAssessment(assessment);
+        return brandRepository.save(brand);
+
+    }
+
+    @Override
+    public Brand modifyBrandByAssessment(long id, float assessment) {
+        return null;
     }
 
     @Override

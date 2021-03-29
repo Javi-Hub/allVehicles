@@ -42,6 +42,13 @@ public class CompanyServiceImpl implements CompanyService{
         return companyRepository.save(newCompany);
     }
 
+    public Company modifyCompanyBySharesStock(long id, float sharesStock) {
+        Company company = companyRepository.findById(id)
+                .orElseThrow(() -> new CompanyNotFoundException(id));
+        company.setSharesStock(sharesStock);
+        return companyRepository.save(company);
+    }
+
     @Override
     public void deleteCompany(long id) {
         Company company = companyRepository.findById(id)
