@@ -2,6 +2,7 @@ package com.sanvalero.allVehiclesAPI.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jdk.dynalink.linker.LinkerServices;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Creado por @author: Javier
@@ -30,6 +32,16 @@ public class Company {
     @Column(name = "company")
     private String name;
 
+    @Schema(description = "Headquarters", example = "Sttutgart")
+    @NotBlank
+    @Column
+    private String headquarter;
+
+    @Schema(description = "Country", example = "Germany")
+    @NotBlank
+    @Column
+    private String country;
+
     @Schema(description = "Number of employees", example = "5000")
     @NotBlank
     @Column
@@ -48,5 +60,8 @@ public class Company {
     @JsonFormat(pattern = "dd/MM/yyy")
     @Column(name = "foundation_date")
     private LocalDate foundationDate;
+
+    @OneToMany(mappedBy = "company")
+    private List<Brand> brandList;
 
 }

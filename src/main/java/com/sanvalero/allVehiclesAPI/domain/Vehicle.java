@@ -1,5 +1,6 @@
 package com.sanvalero.allVehiclesAPI.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +28,7 @@ public class Vehicle {
     @Column(name = "vehicle")
     private String name;
 
-    @Schema(description = "Horse power", example = "150")
+    @Schema(description = "Horse power (CV)", example = "150")
     @Column(name = "horse_power")
     private int horsePower;
 
@@ -42,4 +43,10 @@ public class Vehicle {
     @Schema(description = "Market launch", example = "15/12/2005")
     @Column(name = "market_launch")
     private LocalDate marketLaunch;
+
+    @ManyToOne
+    @JoinColumn(name = "model_id")
+    @JsonBackReference
+    private Model model;
+
 }

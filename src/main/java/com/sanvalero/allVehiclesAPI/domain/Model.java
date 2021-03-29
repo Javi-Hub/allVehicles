@@ -1,5 +1,6 @@
 package com.sanvalero.allVehiclesAPI.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Creado por @author: Javier
@@ -25,10 +27,15 @@ public class Model {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Schema(description = "Model of the vehicle", example = "CLA", required = true)
+    @Schema(description = "Model of the vehicle", example = "GLA", required = true)
     @NotBlank
     @Column(name = "model")
     private String name;
+
+    @Schema(description = "Type of vehicle", example = "SUV")
+    @NotBlank
+    @Column
+    private String type;
 
     @Schema(description = "Units manufactured", example = "450000")
     @Column
@@ -47,5 +54,13 @@ public class Model {
     @JsonFormat(pattern = "dd/MM/yyy")
     @Column(name = "market_launch")
     private LocalDate marketLaunch;
+
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    @JsonBackReference
+    private Brand brand;
+
+    @OneToMany(mappedBy = "model")
+    private List<Vehicle> vehicleList;
 
 }

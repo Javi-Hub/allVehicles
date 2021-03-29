@@ -1,5 +1,6 @@
 package com.sanvalero.allVehiclesAPI.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Creado por @author: Javier
@@ -48,5 +50,12 @@ public class Brand {
     @Column(name = "foundation_date")
     private LocalDate foundationDate;
 
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    @JsonBackReference
+    private Company company;
+
+    @OneToMany(mappedBy = "brand")
+    private List<Model> modelList;
 
 }
