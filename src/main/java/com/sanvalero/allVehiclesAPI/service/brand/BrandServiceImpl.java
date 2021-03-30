@@ -41,11 +41,7 @@ public class BrandServiceImpl implements BrandService{
         Company company = companyRepository.findById(id)
                 .orElseThrow(() -> new CompanyNotFoundException(id));
         Brand brand = new Brand();
-        brand.setName(brandDTO.getName());
-        brand.setRanking(brandDTO.getRanking());
-        brand.setOperational(brandDTO.isOperational());
-        brand.setAssessment(brandDTO.getAssessment());
-        brand.setFoundationDate(brandDTO.getFoundationDate());
+        setBrand(brand, brandDTO);
         brand.setCompany(company);
         return brandRepository.save(brand);
     }
@@ -54,16 +50,12 @@ public class BrandServiceImpl implements BrandService{
     public Brand modifyBrand(long id, BrandDTO brandDTO) {
         Brand brand = brandRepository.findById(id)
                 .orElseThrow(() -> new BrandNotFoundException(id));
-        brand.setName(brandDTO.getName());
-        brand.setRanking(brandDTO.getRanking());
-        brand.setOperational(brandDTO.isOperational());
-        brand.setAssessment(brandDTO.getAssessment());
-        brand.setFoundationDate(brandDTO.getFoundationDate());
+        setBrand(brand, brandDTO);
         return brandRepository.save(brand);
     }
 
     @Override
-    public Brand modifyBrandAssessment(long id, float assessment) {
+    public Brand modifyBrandByAssessment(long id, float assessment) {
         Brand brand = brandRepository.findById(id)
                 .orElseThrow(() -> new BrandNotFoundException(id));
         brand.setAssessment(assessment);
@@ -75,6 +67,14 @@ public class BrandServiceImpl implements BrandService{
     public void deleteBrand(long id) {
         Brand brand = brandRepository.findById(id)
                 .orElseThrow(() -> new BrandNotFoundException(id));
-        brandRepository.deleteById(id);
+        brandRepository.delete(brand);
+    }
+
+    public void setBrand(Brand brand, BrandDTO brandDTO){
+        brand.setName(brandDTO.getName());
+        brand.setRanking(brandDTO.getRanking());
+        brand.setOperational(brandDTO.isOperational());
+        brand.setAssessment(brandDTO.getAssessment());
+        brand.setFoundationDate(brandDTO.getFoundationDate());
     }
 }

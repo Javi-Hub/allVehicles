@@ -1,5 +1,6 @@
 package com.sanvalero.allVehiclesAPI.controller;
 
+import ch.qos.logback.core.pattern.util.RegularEscapeUtil;
 import com.sanvalero.allVehiclesAPI.domain.Brand;
 import com.sanvalero.allVehiclesAPI.domain.dto.BrandDTO;
 import com.sanvalero.allVehiclesAPI.exception.BrandNotFoundException;
@@ -84,13 +85,27 @@ public class BrandController {
             @ApiResponse(responseCode = "200", description = "Modify field assessment of a brand", content = @Content(schema = @Schema(implementation = Brand.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify assessment", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PatchMapping(value = "/allVehicles/brand/{id}/change-assessment", produces = "application/json", consumes = "application/json")
+    @PatchMapping(value = "/allVehicles/brand/{id}/change-assessment", produces = "application/json")
     public ResponseEntity<Brand> modifyBrandAssessment(@PathVariable long id,
                                                        @RequestParam(value = "assessment", defaultValue = "") float assessment){
-        logger.info("[init modifyBrandAssessment]");
-        Brand brand = brandService.modifyBrandAssessment(id, assessment);
-        logger.info("[end modifyBrandAssessment]");
+        logger.info("[init modifyBrandByAssessment]");
+        Brand brand = brandService.modifyBrandByAssessment(id, assessment);
+        logger.info("[end modifyBrandByAssessment]");
         return ResponseEntity.status(HttpStatus.OK).body(brand);
+    }
+
+    //****************************** DELETE ********************************
+    @Operation(summary = "Delete brand")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Delete a brand", content = @Content(schema = @Schema(implementation = Brand.class))),
+            @ApiResponse(responseCode = "404", description = "Fail deleting brand", content = @Content(schema = @Schema(implementation = Response.class)))
+    })
+    @DeleteMapping(value = "/allVehicles/brand/{id}")
+    public ResponseEntity<Response> deleteBrand(@PathVariable long id){
+        logger.info("[init deleteBrand]");
+        brandService.deleteBrand(id);
+        logger.info("[end deleteBrand]");
+        return ResponseEntity.status(HttpStatus.OK).body(Response.notErrorResponse());
     }
 
     //****************************** EXCEPTION ********************************

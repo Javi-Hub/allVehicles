@@ -7,8 +7,10 @@ import com.sanvalero.allVehiclesAPI.domain.dto.BrandDTO;
 import com.sanvalero.allVehiclesAPI.domain.dto.ModelDTO;
 import com.sanvalero.allVehiclesAPI.exception.BrandNotFoundException;
 import com.sanvalero.allVehiclesAPI.exception.CompanyNotFoundException;
+import com.sanvalero.allVehiclesAPI.exception.ModelNotFoundException;
 import com.sanvalero.allVehiclesAPI.repository.BrandRepository;
 import com.sanvalero.allVehiclesAPI.repository.ModelRepository;
+import io.swagger.v3.core.jackson.ModelResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,27 +45,47 @@ public class ModelServiceImpl implements ModelService{
         Brand brand = brandRepository.findById(id)
                 .orElseThrow(() -> new BrandNotFoundException(id));
         Model model = new Model();
-        model.setName(modelDTO.getName());
-        model.setType(modelDTO.getType());
-        model.setUnits(modelDTO.getUnits());
-        model.setAvailable(modelDTO.isAvailable());
-        model.setMarketLaunch(modelDTO.getMarketLaunch());
-        model.setBrand(brand);
+        setModel(model, modelDTO);
         return modelRepository.save(model);
     }
 
     @Override
     public Model modifyModel(long id, ModelDTO modelDTO) {
-        return null;
+        Model model = modelRepository.findById(id)
+                .orElseThrow(() -> new ModelNotFoundException(id));
+        setModel(model, modelDTO);
+        return modelRepository.save(model);
     }
 
     @Override
-    public Model modifyModelUnits(long id, int units) {
-        return null;
+    public Model modifyModelByUnits(long id, int units) {
+        Model model = modelRepository.findById(id)
+                .orElseThrow(() -> new ModelNotFoundException(id));
+        model.setUnits(units);
+        return modelRepository.save(model);
+    }
+
+    @Override
+    public Model modifyModelByLength(long id, float length) {
+        Model model = modelRepository.findById(id)
+                .orElseThrow(() -> new ModelNotFoundException(id));
+        model.setLength(length);
+        return modelRepository.save(model);
     }
 
     @Override
     public void deleteModel(long id) {
+        Model model = modelRepository.findById(id)
+                .orElseThrow(() -> new ModelNotFoundException(id));
+        modelRepository.delete(model);
+    }
 
+    public void setModel(Model model, ModelDTO modelDTO){
+        model.setName(modelDTO.getName());
+        model.setType(modelDTO.getType());
+        model.setUnits(modelDTO.getUnits());
+        model.setAvailable(modelDTO.isAvailable());
+        model.setLength(modelDTO.getLength());
+        model.setMarketLaunch(modelDTO.getMarketLaunch());
     }
 }

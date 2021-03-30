@@ -16,7 +16,8 @@ public interface ModelService {
     Set<Model> findModels();
     Model addModel(long id, ModelDTO modelDTO);
     Model modifyModel(long id, ModelDTO modelDTO);
-    Model modifyModelUnits(long id, int units);
+    Model modifyModelByUnits(long id, int units);
+    Model modifyModelByLength(long id, float length);
     void deleteModel(long id);
 
 }

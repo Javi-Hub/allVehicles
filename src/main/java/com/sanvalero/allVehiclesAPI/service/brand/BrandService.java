@@ -16,6 +16,6 @@ public interface BrandService {
     Set<Brand> findBrands();
     Brand addBrand(long id, BrandDTO brandDTO);
     Brand modifyBrand(long id, BrandDTO brandDTO);
-    Brand modifyBrandAssessment(long id, float assessment);
+    Brand modifyBrandByAssessment(long id, float assessment);
     void deleteBrand(long id);
 }
