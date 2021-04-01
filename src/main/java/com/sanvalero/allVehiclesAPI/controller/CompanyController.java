@@ -1,6 +1,7 @@
 package com.sanvalero.allVehiclesAPI.controller;
 
 import com.sanvalero.allVehiclesAPI.domain.Company;
+import com.sanvalero.allVehiclesAPI.domain.dto.CompanyDTO;
 import com.sanvalero.allVehiclesAPI.exception.CompanyNotFoundException;
 import com.sanvalero.allVehiclesAPI.service.company.CompanyService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -70,9 +71,9 @@ public class CompanyController {
             @ApiResponse(responseCode = "404", description = "Fail modify company", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PutMapping(value = "/allVehicles/company/{id}", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<Company> modifyCompany(@PathVariable long id, @RequestBody Company newCompany){
+    public ResponseEntity<Company> modifyCompany(@PathVariable long id, @RequestBody CompanyDTO companyDTO){
         logger.info("[init modifyCompany]");
-        Company company = companyService.modifyCompany(id, newCompany);
+        Company company = companyService.modifyCompany(id, companyDTO);
         logger.info("[end modifyCompany]");
         return ResponseEntity.status(HttpStatus.OK).body(company);
     }

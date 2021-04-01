@@ -1,6 +1,7 @@
 package com.sanvalero.allVehiclesAPI.service.company;
 
 import com.sanvalero.allVehiclesAPI.domain.Company;
+import com.sanvalero.allVehiclesAPI.domain.dto.CompanyDTO;
 import com.sanvalero.allVehiclesAPI.exception.CompanyNotFoundException;
 import com.sanvalero.allVehiclesAPI.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +36,11 @@ public class CompanyServiceImpl implements CompanyService{
     }
 
     @Override
-    public Company modifyCompany(long id, Company newCompany) {
+    public Company modifyCompany(long id, CompanyDTO companyDTO) {
         Company company = companyRepository.findById(id)
                 .orElseThrow(() -> new CompanyNotFoundException(id));
-        newCompany.setId(company.getId());
-        return companyRepository.save(newCompany);
+        setCompany(company, companyDTO);
+        return companyRepository.save(company);
     }
 
     public Company modifyCompanyBySharesStock(long id, float sharesStock) {
@@ -53,6 +54,16 @@ public class CompanyServiceImpl implements CompanyService{
     public void deleteCompany(long id) {
         Company company = companyRepository.findById(id)
                 .orElseThrow(() -> new CompanyNotFoundException(id));
-        companyRepository.deleteById(id);
+        companyRepository.delete(company);
+    }
+
+    public void setCompany(Company company, CompanyDTO companyDTO){
+        company.setName(companyDTO.getName());
+        company.setHeadquarter(companyDTO.getHeadquarter());
+        company.setCountry(companyDTO.getCountry());
+        company.setEmployees(companyDTO.getEmployees());
+        company.setStockMarket(companyDTO.isStockMarket());
+        company.setSharesStock(companyDTO.getSharesStock());
+        company.setFoundationDate(companyDTO.getFoundationDate());
     }
 }
