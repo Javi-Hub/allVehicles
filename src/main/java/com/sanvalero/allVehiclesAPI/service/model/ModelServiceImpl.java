@@ -14,6 +14,7 @@ import io.swagger.v3.core.jackson.ModelResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -38,6 +39,16 @@ public class ModelServiceImpl implements ModelService{
     @Override
     public Set<Model> findModels() {
         return modelRepository.findAll();
+    }
+
+    @Override
+    public Set<Model> findByNameAndTypeAndAvailable(String name, String type, boolean available) {
+        return modelRepository.findByNameAndTypeAndAvailable(name, type, available);
+    }
+
+    @Override
+    public Model findByName(String name) {
+        return modelRepository.findByName(name);
     }
 
     @Override

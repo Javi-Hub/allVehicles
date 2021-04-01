@@ -14,6 +14,7 @@ public interface BrandService {
 
     Optional<Brand> findBrandById(long id);
     Set<Brand> findBrands();
+    Brand findByName(String name);
     Brand addBrand(long id, BrandDTO brandDTO);
     Brand modifyBrand(long id, BrandDTO brandDTO);
     Brand modifyBrandByAssessment(long id, float assessment);

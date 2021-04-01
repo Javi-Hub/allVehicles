@@ -65,6 +65,23 @@ public class ModelController {
         return ResponseEntity.status(HttpStatus.OK).body(models);
     }
 
+    @Operation(summary = "Get models filtered")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Get models filtered by name, type and available", content = @Content(schema = @Schema(implementation = Model.class))),
+            @ApiResponse(responseCode = "404", description = "Not found", content = @Content(array = @ArraySchema(schema= @Schema(implementation = Response.class))))
+    })
+    @GetMapping(value = "/allVehicles/model/name-type-available", produces = "application/json")
+    public ResponseEntity<Set<Model>> getModelsFilteredByNameTypeAvailable
+                                    (@RequestParam(value = "name", defaultValue = "") String name,
+                                     @RequestParam(value = "type", defaultValue = "") String type,
+                                     @RequestParam(value = "available", defaultValue = "") boolean available){
+        logger.info("[init getModelsFilteredByNameTypeAvailable]");
+        Set<Model> models = modelService.findByNameAndTypeAndAvailable(name, type, available);
+        logger.info("[end getModelsFilteredByNameTypeAvailable]");
+        return ResponseEntity.status(HttpStatus.OK).body(models);
+    }
+
+
     //****************************** PUT ********************************
     @Operation(summary = "Modify model")
     @ApiResponses(value = {

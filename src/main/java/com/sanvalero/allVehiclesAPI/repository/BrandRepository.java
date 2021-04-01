@@ -14,5 +14,6 @@ import java.util.Set;
 public interface BrandRepository extends CrudRepository<Brand, Long> {
 
     Set<Brand> findAll();
+    Brand findByName(String name);
 
 }

@@ -5,6 +5,7 @@ import com.sanvalero.allVehiclesAPI.domain.Brand;
 import com.sanvalero.allVehiclesAPI.domain.dto.BrandDTO;
 import com.sanvalero.allVehiclesAPI.exception.BrandNotFoundException;
 import com.sanvalero.allVehiclesAPI.service.brand.BrandService;
+import com.sun.source.doctree.AttributeTree;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -62,6 +63,19 @@ public class BrandController {
         Set<Brand> brands = brandService.findBrands();
         logger.info("[end getAllBrands]");
         return ResponseEntity.status(HttpStatus.OK).body(brands);
+    }
+
+    @Operation(summary = "Get brand by name")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Get brand by name", content = @Content(schema = @Schema(implementation = Brand.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(array = @ArraySchema(schema= @Schema(implementation = Response.class))))
+    })
+    @GetMapping(value = "/allVehicles/brand/name", produces = "application/json")
+    public ResponseEntity<Brand> getBrandByName(@RequestParam(value = "name", defaultValue = "") String name){
+        logger.info("[init getBrandByName]");
+        Brand brand = brandService.findByName(name);
+        logger.info("[end getBrandByName]");
+        return ResponseEntity.status(HttpStatus.OK).body(brand);
     }
 
     //****************************** PUT ********************************

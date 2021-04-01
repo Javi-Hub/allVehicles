@@ -10,6 +10,7 @@ import com.sanvalero.allVehiclesAPI.repository.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.NotificationEmitter;
 import java.util.Optional;
 import java.util.Set;
 
@@ -34,6 +35,11 @@ public class BrandServiceImpl implements BrandService{
     @Override
     public Set<Brand> findBrands() {
         return brandRepository.findAll();
+    }
+
+    @Override
+    public Brand findByName(String name) {
+        return brandRepository.findByName(name);
     }
 
     @Override

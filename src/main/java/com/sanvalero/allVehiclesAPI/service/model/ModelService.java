@@ -1,5 +1,6 @@
 package com.sanvalero.allVehiclesAPI.service.model;
 
+import com.sanvalero.allVehiclesAPI.domain.Brand;
 import com.sanvalero.allVehiclesAPI.domain.Model;
 import com.sanvalero.allVehiclesAPI.domain.dto.ModelDTO;
 
@@ -14,6 +15,8 @@ public interface ModelService {
 
     Optional<Model> findModelById(long id);
     Set<Model> findModels();
+    Set<Model> findByNameAndTypeAndAvailable(String name, String type, boolean available);
+    Model findByName(String name);
     Model addModel(long id, ModelDTO modelDTO);
     Model modifyModel(long id, ModelDTO modelDTO);
     Model modifyModelByUnits(long id, int units);

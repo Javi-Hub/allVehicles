@@ -1,5 +1,6 @@
 package com.sanvalero.allVehiclesAPI.repository;
 
+import com.sanvalero.allVehiclesAPI.domain.Brand;
 import com.sanvalero.allVehiclesAPI.domain.Model;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -14,5 +15,7 @@ import java.util.Set;
 public interface ModelRepository extends CrudRepository<Model, Long> {
 
     Set<Model> findAll();
-
+    Set<Model> findByNameAndTypeAndAvailable(String name, String type, boolean available);
+    Model findByName(String name);
 }
+
