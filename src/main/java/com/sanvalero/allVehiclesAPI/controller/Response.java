@@ -27,7 +27,7 @@ public class Response {
         private long errorCode;
 
         @Schema(description = "Error Message", example = "Company not found")
-        private String erroMessage;
+        private String errorMessage;
 
     }
 

@@ -83,7 +83,7 @@ public class ModelController {
     @Operation(summary = "Modify model by units")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Modify field units of a model", content = @Content(schema = @Schema(implementation = Model.class))),
-            @ApiResponse(responseCode = "404", description = "Fail modify model", content = @Content(schema = @Schema(implementation = Response.class)))
+            @ApiResponse(responseCode = "404", description = "Fail modify units model", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PatchMapping(value = "/allVehicles/model/{id}/change-units", produces = "application/json")
     public ResponseEntity<Model> modifyModelByUnits(@PathVariable long id,
@@ -97,11 +97,11 @@ public class ModelController {
     @Operation(summary = "Modify model by length")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Modify field length of a model", content = @Content(schema = @Schema(implementation = Model.class))),
-            @ApiResponse(responseCode = "404", description = "Fail modify model", content = @Content(schema = @Schema(implementation = Response.class)))
+            @ApiResponse(responseCode = "404", description = "Fail modify length model", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @PatchMapping(value = "/allVehicles/model/{id}/change-length", produces = "application/json")
     public ResponseEntity<Model> modifyModelByLength(@PathVariable long id,
-                                                    @RequestParam(value = "length", defaultValue = "") float length){
+                                                        @RequestParam(value = "length", defaultValue = "") float length){
         logger.info("[init modifyModelByLength]");
         Model model = modelService.modifyModelByLength(id, length);
         logger.info("[end modifyModelByLength]");
@@ -112,7 +112,7 @@ public class ModelController {
     @Operation(summary = "Delete model")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Delete a model", content = @Content(schema = @Schema(implementation = Model.class))),
-            @ApiResponse(responseCode = "404", description = "Fail deleting brand", content = @Content(schema = @Schema(implementation = Response.class)))
+            @ApiResponse(responseCode = "404", description = "Fail deleting model", content = @Content(schema = @Schema(implementation = Response.class)))
     })
     @DeleteMapping(value = "/allVehicles/model/{id}")
     public ResponseEntity<Response> deleteModel(@PathVariable long id){
