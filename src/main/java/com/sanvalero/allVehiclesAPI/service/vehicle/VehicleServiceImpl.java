@@ -7,7 +7,6 @@ import com.sanvalero.allVehiclesAPI.exception.ModelNotFoundException;
 import com.sanvalero.allVehiclesAPI.exception.VehicleNotFoundException;
 import com.sanvalero.allVehiclesAPI.repository.ModelRepository;
 import com.sanvalero.allVehiclesAPI.repository.VehicleRespository;
-import io.swagger.v3.core.jackson.ModelResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

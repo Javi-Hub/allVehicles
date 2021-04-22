@@ -1,6 +1,5 @@
 package com.sanvalero.allVehiclesAPI.controller;
 
-import com.sanvalero.allVehiclesAPI.domain.Brand;
 import com.sanvalero.allVehiclesAPI.domain.Model;
 import com.sanvalero.allVehiclesAPI.domain.dto.ModelDTO;
 import com.sanvalero.allVehiclesAPI.exception.ModelNotFoundException;
@@ -15,7 +14,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +41,7 @@ public class ModelController {
             @ApiResponse(responseCode = "201", description = "Model registered", content = @Content(schema = @Schema(implementation = Model.class))),
             @ApiResponse(responseCode = "404", description = "Fail insert model", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PostMapping(value = "/allVehicles/brand/{id}/model", produces = "application/json", consumes = "application/json")
+    @PostMapping(value = "/allvehicles/brands/{id}/models", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Model> addModel(@PathVariable long id, @RequestBody ModelDTO modelDTO){
         logger.info("[init addModel]");
         Model addedModel = modelService.addModel(id, modelDTO);
@@ -57,7 +55,7 @@ public class ModelController {
             @ApiResponse(responseCode = "200", description = "Get information of all vehicle models", content = @Content(schema = @Schema(implementation = Model.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(array = @ArraySchema(schema= @Schema(implementation = Response.class))))
     })
-    @GetMapping(value = "/allVehicles/model", produces = "application/json")
+    @GetMapping(value = "/allvehicles/models", produces = "application/json")
     public ResponseEntity<Set<Model>> getAllModels(){
         logger.info("[init getAllModels]");
         Set<Model> models = modelService.findModels();
@@ -65,12 +63,26 @@ public class ModelController {
         return ResponseEntity.status(HttpStatus.OK).body(models);
     }
 
+    @Operation(summary = "Get model by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Get information of a model", content = @Content(schema = @Schema(implementation = Model.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(schema= @Schema(implementation = Response.class)))
+    })
+    @GetMapping(value = "/allvehicles/models/{id}", produces = "application/json")
+    public ResponseEntity<Model> getModelById(@PathVariable long id){
+        logger.info("[init getModelById]");
+        Model model = modelService.findModelById(id)
+                .orElseThrow(() -> new ModelNotFoundException(id));
+        logger.info("[end getModelById]");
+        return ResponseEntity.status(HttpStatus.OK).body(model);
+    }
+
     @Operation(summary = "Get models filtered")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Get models filtered by name, type and available", content = @Content(schema = @Schema(implementation = Model.class))),
             @ApiResponse(responseCode = "404", description = "Not found", content = @Content(array = @ArraySchema(schema= @Schema(implementation = Response.class))))
     })
-    @GetMapping(value = "/allVehicles/model/name-type-available", produces = "application/json")
+    @GetMapping(value = "/allvehicles/models/name-type-available", produces = "application/json")
     public ResponseEntity<Set<Model>> getModelsFilteredByNameTypeAvailable
                                     (@RequestParam(value = "name", defaultValue = "") String name,
                                      @RequestParam(value = "type", defaultValue = "") String type,
@@ -81,6 +93,21 @@ public class ModelController {
         return ResponseEntity.status(HttpStatus.OK).body(models);
     }
 
+    @Operation(summary = "Get models filtered by company, brand and units model")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Get models filtered by company, brand and units model", content = @Content(array = @ArraySchema(schema = @Schema(implementation = Model.class)))),
+            @ApiResponse(responseCode = "404", description = "Fail get models", content = @Content(schema = @Schema(implementation = Response.class)))
+    })
+    @GetMapping(value = "/allvehicles/brand-model-units-type")
+    public ResponseEntity<Set<Model>> getModelsFilteredByCompanyBrandAndUnits(@RequestParam(value = "brand", defaultValue = "") String brand,
+                                                                              @RequestParam(value = "maxUnit", defaultValue = "") int maxUnit,
+                                                                              @RequestParam(value = "minUnit", defaultValue = "") int minUnit,
+                                                                              @RequestParam(value = "type", defaultValue = "") String type){
+        logger.info("[getModelsFilteredByCompanyBrandAndUnits]");
+        Set<Model> models = modelService.findByCompanyAndBrandAndUnitsmodel(brand, type, maxUnit, minUnit);
+        logger.info("[getModelsFilteredByCompanyBrandAndUnits]");
+        return ResponseEntity.status(HttpStatus.OK).body(models);
+    }
 
     //****************************** PUT ********************************
     @Operation(summary = "Modify model")
@@ -88,7 +115,7 @@ public class ModelController {
             @ApiResponse(responseCode = "200", description = "Modify all fields of a model", content = @Content(schema = @Schema(implementation = Model.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify model", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PutMapping(value = "/allVehicles/model/{id}", produces = "application/json", consumes = "application/json")
+    @PutMapping(value = "/allvehicles/models/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Model> modifyModel(@PathVariable long id, @RequestBody ModelDTO modelDTO){
         logger.info("[init modifyModel]");
         Model model =  modelService.modifyModel(id, modelDTO);
@@ -102,7 +129,7 @@ public class ModelController {
             @ApiResponse(responseCode = "200", description = "Modify field units of a model", content = @Content(schema = @Schema(implementation = Model.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify units model", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PatchMapping(value = "/allVehicles/model/{id}/change-units", produces = "application/json")
+    @PatchMapping(value = "/allvehicles/models/{id}/change-units", produces = "application/json")
     public ResponseEntity<Model> modifyModelByUnits(@PathVariable long id,
                                                     @RequestParam(value = "units", defaultValue = "") int units){
         logger.info("[init modifyModelByUnits]");
@@ -116,7 +143,7 @@ public class ModelController {
             @ApiResponse(responseCode = "200", description = "Modify field length of a model", content = @Content(schema = @Schema(implementation = Model.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify length model", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PatchMapping(value = "/allVehicles/model/{id}/change-length", produces = "application/json")
+    @PatchMapping(value = "/allvehicles/models/{id}/change-length", produces = "application/json")
     public ResponseEntity<Model> modifyModelByLength(@PathVariable long id,
                                                         @RequestParam(value = "length", defaultValue = "") float length){
         logger.info("[init modifyModelByLength]");
@@ -131,7 +158,7 @@ public class ModelController {
             @ApiResponse(responseCode = "200", description = "Delete a model", content = @Content(schema = @Schema(implementation = Model.class))),
             @ApiResponse(responseCode = "404", description = "Fail deleting model", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @DeleteMapping(value = "/allVehicles/model/{id}")
+    @DeleteMapping(value = "/allvehicles/models/{id}")
     public ResponseEntity<Response> deleteModel(@PathVariable long id){
         logger.info("[init deleteModel]");
         modelService.deleteModel(id);

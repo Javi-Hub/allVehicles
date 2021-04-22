@@ -16,6 +16,7 @@ public interface ModelService {
     Optional<Model> findModelById(long id);
     Set<Model> findModels();
     Set<Model> findByNameAndTypeAndAvailable(String name, String type, boolean available);
+    Set<Model> findByCompanyAndBrandAndUnitsmodel(String brand, String type, int maxUnit, int minUnit);
     Model findByName(String name);
     Model addModel(long id, ModelDTO modelDTO);
     Model modifyModel(long id, ModelDTO modelDTO);

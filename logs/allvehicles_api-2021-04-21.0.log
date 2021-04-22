@@ -1,0 +1,165 @@
+2021-04-21 10:57:27,852 INFO org.springframework.boot.StartupInfoLogger [main] Starting AllVehiclesApiApplication using Java 11.0.10 on DESKTOP-GOI1K1R with PID 9292 (C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI\target\classes started by Javier in C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI)
+2021-04-21 10:57:27,868 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-21 10:57:28,965 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-21 10:57:29,082 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 98 ms. Found 4 JPA repository interfaces.
+2021-04-21 10:57:30,043 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-21 10:57:30,060 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-21 10:57:30,060 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-21 10:57:30,061 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-21 10:57:30,208 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-21 10:57:30,209 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2243 ms
+2021-04-21 10:57:30,553 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-21 10:57:30,645 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-21 10:57:30,815 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-21 10:57:30,973 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-21 10:57:31,352 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-21 10:57:31,397 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2021-04-21 10:57:32,320 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-21 10:57:32,328 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-21 10:57:32,835 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-21 10:57:32,907 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-21 10:57:33,465 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [main] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-04-21 10:57:33,587 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-21 10:57:33,686 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-21 10:57:33,692 INFO org.springframework.boot.StartupInfoLogger [main] Started AllVehiclesApiApplication in 6.771 seconds (JVM running for 7.45)
+2021-04-21 10:59:08,006 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-21 10:59:08,007 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-04-21 10:59:08,008 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2021-04-21 10:59:09,101 INFO org.springdoc.api.AbstractOpenApiResource [http-nio-8080-exec-8] Init duration for springdoc-openapi is: 717 ms
+2021-04-21 11:07:36,607 INFO org.springframework.boot.StartupInfoLogger [main] Starting AllVehiclesApiApplication using Java 11.0.10 on DESKTOP-GOI1K1R with PID 15656 (C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI\target\classes started by Javier in C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI)
+2021-04-21 11:07:36,610 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-21 11:07:37,650 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-21 11:07:37,713 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2021-04-21 11:07:38,403 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-21 11:07:38,411 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-21 11:07:38,411 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-21 11:07:38,412 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-21 11:07:38,485 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-21 11:07:38,485 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1831 ms
+2021-04-21 11:07:38,626 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-21 11:07:38,674 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-21 11:07:38,750 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-21 11:07:38,823 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-21 11:07:38,941 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-21 11:07:38,954 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2021-04-21 11:07:39,460 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-21 11:07:39,467 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-21 11:07:39,800 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-21 11:07:39,868 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-21 11:07:40,170 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [main] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-04-21 11:07:40,274 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-21 11:07:40,293 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-21 11:07:40,299 INFO org.springframework.boot.StartupInfoLogger [main] Started AllVehiclesApiApplication in 4.241 seconds (JVM running for 4.628)
+2021-04-21 11:07:42,636 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-21 11:07:42,637 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-04-21 11:07:42,638 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 0 ms
+2021-04-21 11:07:42,676 INFO com.sanvalero.allVehiclesAPI.controller.ModelController [http-nio-8080-exec-1] [getModelsFilteredByCompanyBrandAndUnits]
+2021-04-21 11:07:42,850 INFO com.sanvalero.allVehiclesAPI.controller.ModelController [http-nio-8080-exec-1] [getModelsFilteredByCompanyBrandAndUnits]
+2021-04-21 11:08:49,999 INFO com.sanvalero.allVehiclesAPI.controller.ModelController [http-nio-8080-exec-5] [getModelsFilteredByCompanyBrandAndUnits]
+2021-04-21 11:08:50,006 INFO com.sanvalero.allVehiclesAPI.controller.ModelController [http-nio-8080-exec-5] [getModelsFilteredByCompanyBrandAndUnits]
+2021-04-21 12:10:13,516 INFO org.springframework.boot.StartupInfoLogger [main] Starting AllVehiclesApiApplication using Java 11.0.10 on DESKTOP-GOI1K1R with PID 11844 (C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI\target\classes started by Javier in C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI)
+2021-04-21 12:10:13,529 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-21 12:10:14,880 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-21 12:10:15,075 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 175 ms. Found 4 JPA repository interfaces.
+2021-04-21 12:10:16,556 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-21 12:10:16,587 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-21 12:10:16,589 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-21 12:10:16,589 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-21 12:10:16,850 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-21 12:10:16,851 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 3246 ms
+2021-04-21 12:10:17,191 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-21 12:10:17,265 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-21 12:10:17,407 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-21 12:10:17,529 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-21 12:10:17,733 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-21 12:10:17,752 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2021-04-21 12:10:18,770 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-21 12:10:18,782 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-21 12:10:19,569 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-21 12:10:19,702 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-21 12:10:20,589 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [main] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-04-21 12:10:21,149 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-21 12:10:21,324 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-21 12:10:21,338 INFO org.springframework.boot.StartupInfoLogger [main] Started AllVehiclesApiApplication in 8.728 seconds (JVM running for 9.365)
+2021-04-21 12:13:23,836 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-21 12:13:23,837 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-04-21 12:13:23,838 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 0 ms
+2021-04-21 12:13:23,963 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-2] [init addCompany]
+2021-04-21 12:13:24,050 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-2] [end addCompany]
+2021-04-21 12:13:44,902 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-3] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2021-04-21 12:14:30,483 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-4] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2021-04-21 12:14:49,421 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-6] [init getAllCompanies]
+2021-04-21 12:14:49,531 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-6] [end getAllCompanies]
+2021-04-21 12:20:21,959 INFO org.springframework.boot.StartupInfoLogger [main] Starting AllVehiclesApiApplication using Java 11.0.10 on DESKTOP-GOI1K1R with PID 16904 (C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI\target\classes started by Javier in C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI)
+2021-04-21 12:20:21,961 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-21 12:20:22,514 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-21 12:20:22,564 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 42 ms. Found 4 JPA repository interfaces.
+2021-04-21 12:20:23,199 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-21 12:20:23,206 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-21 12:20:23,207 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-21 12:20:23,207 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-21 12:20:23,286 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-21 12:20:23,286 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1290 ms
+2021-04-21 12:20:23,418 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-21 12:20:23,468 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-21 12:20:23,557 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-21 12:20:23,626 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-21 12:20:23,745 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-21 12:20:23,759 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2021-04-21 12:20:24,222 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-21 12:20:24,229 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-21 12:20:24,549 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-21 12:20:24,592 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-21 12:20:24,890 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [main] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-04-21 12:20:24,983 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-21 12:20:24,998 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-21 12:20:25,004 INFO org.springframework.boot.StartupInfoLogger [main] Started AllVehiclesApiApplication in 3.423 seconds (JVM running for 3.745)
+2021-04-21 12:20:32,597 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-21 12:20:32,598 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2021-04-21 12:20:32,599 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2021-04-21 12:20:32,626 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-1] [init     public ResponseEntity<Set<Company>> getCompanyById(){
+]
+2021-04-21 12:20:32,688 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-1] [end     public ResponseEntity<Set<Company>> getCompanyById(){
+]
+2021-04-21 12:20:44,186 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-3] [init     public ResponseEntity<Set<Company>> getCompanyById(){
+]
+2021-04-21 12:20:44,190 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-3] [end     public ResponseEntity<Set<Company>> getCompanyById(){
+]
+2021-04-21 12:22:03,683 INFO org.springframework.boot.StartupInfoLogger [main] Starting AllVehiclesApiApplication using Java 11.0.10 on DESKTOP-GOI1K1R with PID 14704 (C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI\target\classes started by Javier in C:\Users\Javier\Desktop\Proyectos IntelliJ\DAM\Spring\allVehiclesAPI)
+2021-04-21 12:22:03,687 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-21 12:22:04,330 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-21 12:22:04,379 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+2021-04-21 12:22:05,026 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-21 12:22:05,034 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2021-04-21 12:22:05,034 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2021-04-21 12:22:05,034 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-21 12:22:05,111 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2021-04-21 12:22:05,112 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1374 ms
+2021-04-21 12:22:05,235 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-21 12:22:05,297 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-21 12:22:05,381 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-21 12:22:05,449 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-04-21 12:22:05,574 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-04-21 12:22:05,586 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2021-04-21 12:22:06,066 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-21 12:22:06,075 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-21 12:22:06,400 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-21 12:22:06,456 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-21 12:22:06,759 WARN org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration [main] Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2021-04-21 12:22:06,851 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2021-04-21 12:22:06,868 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-21 12:22:06,874 INFO org.springframework.boot.StartupInfoLogger [main] Started AllVehiclesApiApplication in 3.575 seconds (JVM running for 3.898)
+2021-04-21 12:22:37,223 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-21 12:22:37,224 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-04-21 12:22:37,225 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2021-04-21 12:22:37,255 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-2] [init     public ResponseEntity<Set<Company>> getCompanyById(){
+]
+2021-04-21 12:22:37,304 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-2] [end     public ResponseEntity<Set<Company>> getCompanyById(){
+]
+2021-04-21 12:23:07,829 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-4] [init     public ResponseEntity<Set<Company>> getCompanyById(){
+]
+2021-04-21 12:23:07,837 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-4] [end     public ResponseEntity<Set<Company>> getCompanyById(){
+]
+2021-04-21 12:23:14,685 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-5] [init modifyCompany]
+2021-04-21 12:23:14,790 INFO com.sanvalero.allVehiclesAPI.controller.CompanyController [http-nio-8080-exec-5] [end modifyCompany]
+2021-04-21 12:24:05,003 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-1] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'float'; nested exception is java.lang.NumberFormatException: empty String]

@@ -9,6 +9,7 @@ import com.sanvalero.allVehiclesAPI.exception.BrandNotFoundException;
 import com.sanvalero.allVehiclesAPI.exception.CompanyNotFoundException;
 import com.sanvalero.allVehiclesAPI.exception.ModelNotFoundException;
 import com.sanvalero.allVehiclesAPI.repository.BrandRepository;
+import com.sanvalero.allVehiclesAPI.repository.CompanyRepository;
 import com.sanvalero.allVehiclesAPI.repository.ModelRepository;
 import io.swagger.v3.core.jackson.ModelResolver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Creado por @author: Javier
@@ -30,6 +32,9 @@ public class ModelServiceImpl implements ModelService{
 
     @Autowired
     private BrandRepository brandRepository;
+
+    @Autowired
+    private CompanyRepository companyRepository;
 
     @Override
     public Optional<Model> findModelById(long id) {
@@ -47,6 +52,21 @@ public class ModelServiceImpl implements ModelService{
     }
 
     @Override
+    public Set<Model> findByCompanyAndBrandAndUnitsmodel(String brand, String type, int maxUnit, int minUnit) {
+        Brand searchBrand = brandRepository.findByName(brand);
+
+        List<Model> models = searchBrand.getModelList();
+        Set<Model> searchModels = models.stream()
+                .filter(model -> model.getType().equals(type))
+                .filter(model -> model.getUnits() <= maxUnit)
+                .filter(model -> model.getUnits() >= minUnit)
+                .filter(model -> model.getBrand().equals(searchBrand))
+                .collect(Collectors.toSet());
+
+        return searchModels;
+    }
+
+    @Override
     public Model findByName(String name) {
         return modelRepository.findByName(name);
     }
@@ -56,6 +76,7 @@ public class ModelServiceImpl implements ModelService{
         Brand brand = brandRepository.findById(id)
                 .orElseThrow(() -> new BrandNotFoundException(id));
         Model model = new Model();
+        model.setBrand(brand);
         setModel(model, modelDTO);
         return modelRepository.save(model);
     }

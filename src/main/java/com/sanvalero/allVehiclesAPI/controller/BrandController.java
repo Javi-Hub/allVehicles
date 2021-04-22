@@ -2,8 +2,10 @@ package com.sanvalero.allVehiclesAPI.controller;
 
 import ch.qos.logback.core.pattern.util.RegularEscapeUtil;
 import com.sanvalero.allVehiclesAPI.domain.Brand;
+import com.sanvalero.allVehiclesAPI.domain.Company;
 import com.sanvalero.allVehiclesAPI.domain.dto.BrandDTO;
 import com.sanvalero.allVehiclesAPI.exception.BrandNotFoundException;
+import com.sanvalero.allVehiclesAPI.exception.CompanyNotFoundException;
 import com.sanvalero.allVehiclesAPI.service.brand.BrandService;
 import com.sun.source.doctree.AttributeTree;
 import io.swagger.v3.oas.annotations.Operation;
@@ -43,7 +45,7 @@ public class BrandController {
             @ApiResponse(responseCode = "201", description = "Brand registered", content = @Content(schema = @Schema(implementation = Brand.class))),
             @ApiResponse(responseCode = "404", description = "Fail insert brand", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PostMapping(value = "/allVehicles/company/{id}/brand", produces = "application/json", consumes = "application/json")
+    @PostMapping(value = "/allvehicles/companies/{id}/brands", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Brand> addBrand(@PathVariable long id, @RequestBody BrandDTO brandDTO){
         logger.info("[init addBrand]");
         Brand addedBrand = brandService.addBrand(id, brandDTO);
@@ -57,7 +59,7 @@ public class BrandController {
             @ApiResponse(responseCode = "200", description = "Get information of all vehicle brands", content = @Content(schema = @Schema(implementation = Brand.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(array = @ArraySchema(schema= @Schema(implementation = Response.class))))
     })
-    @GetMapping(value = "/allVehicles/brand", produces = "application/json")
+    @GetMapping(value = "/allvehicles/brands", produces = "application/json")
     public ResponseEntity<Set<Brand>> getAllBrands(){
         logger.info("[init getAllBrands]");
         Set<Brand> brands = brandService.findBrands();
@@ -65,12 +67,26 @@ public class BrandController {
         return ResponseEntity.status(HttpStatus.OK).body(brands);
     }
 
+    @Operation(summary = "Get brand by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Get information of a brand", content = @Content(schema = @Schema(implementation = Brand.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(schema= @Schema(implementation = Response.class)))
+    })
+    @GetMapping(value = "/allvehicles/brands/{id}", produces = "application/json")
+    public ResponseEntity<Brand> getBrandById(@PathVariable long id){
+        logger.info("[init getBrandById]");
+        Brand brand = brandService.findBrandById(id)
+                .orElseThrow(() -> new BrandNotFoundException(id));
+        logger.info("[end getBrandById]");
+        return ResponseEntity.status(HttpStatus.OK).body(brand);
+    }
+
     @Operation(summary = "Get brand by name")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Get brand by name", content = @Content(schema = @Schema(implementation = Brand.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(array = @ArraySchema(schema= @Schema(implementation = Response.class))))
     })
-    @GetMapping(value = "/allVehicles/brand/name", produces = "application/json")
+    @GetMapping(value = "/allvehicles/brands/name", produces = "application/json")
     public ResponseEntity<Brand> getBrandByName(@RequestParam(value = "name", defaultValue = "") String name){
         logger.info("[init getBrandByName]");
         Brand brand = brandService.findByName(name);
@@ -84,7 +100,7 @@ public class BrandController {
             @ApiResponse(responseCode = "200", description = "Modify all fields of a brand", content = @Content(schema = @Schema(implementation = Brand.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify brand", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PutMapping(value = "/allVehicles/brand/{id}", produces = "application/json", consumes = "application/json")
+    @PutMapping(value = "/allvehicles/brands/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Brand> modifyBrand(@PathVariable long id,
                                              @RequestBody BrandDTO brandDTO){
         logger.info("[init modifyBrand]");
@@ -99,7 +115,7 @@ public class BrandController {
             @ApiResponse(responseCode = "200", description = "Modify field assessment of a brand", content = @Content(schema = @Schema(implementation = Brand.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify assessment", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PatchMapping(value = "/allVehicles/brand/{id}/change-assessment", produces = "application/json")
+    @PatchMapping(value = "/allvehicles/brands/{id}/change-assessment", produces = "application/json")
     public ResponseEntity<Brand> modifyBrandAssessment(@PathVariable long id,
                                                        @RequestParam(value = "assessment", defaultValue = "") float assessment){
         logger.info("[init modifyBrandByAssessment]");
@@ -114,7 +130,7 @@ public class BrandController {
             @ApiResponse(responseCode = "200", description = "Delete a brand", content = @Content(schema = @Schema(implementation = Brand.class))),
             @ApiResponse(responseCode = "404", description = "Fail deleting brand", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @DeleteMapping(value = "/allVehicles/brand/{id}")
+    @DeleteMapping(value = "/allvehicles/brands/{id}")
     public ResponseEntity<Response> deleteBrand(@PathVariable long id){
         logger.info("[init deleteBrand]");
         brandService.deleteBrand(id);

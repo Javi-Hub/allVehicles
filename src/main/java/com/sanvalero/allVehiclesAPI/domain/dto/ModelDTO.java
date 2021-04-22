@@ -31,7 +31,7 @@ public class ModelDTO {
     private float length;
 
     @Schema(description = "Market launch", example = "10/10/1978")
-    @JsonFormat(pattern = "dd/MM/yyy")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate marketLaunch;
 
 }

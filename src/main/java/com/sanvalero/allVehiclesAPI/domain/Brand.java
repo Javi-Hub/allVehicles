@@ -46,7 +46,7 @@ public class Brand {
     private float assessment;
 
     @Schema(description = "Foundation date", example = "12/05/1920")
-    @JsonFormat(pattern = "dd/MM/yyy")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "foundation_date")
     private LocalDate foundationDate;
 
@@ -55,7 +55,7 @@ public class Brand {
     @JsonBackReference
     private Company company;
 
-    @OneToMany(mappedBy = "brand")
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.REMOVE)
     private List<Model> modelList;
 
 }

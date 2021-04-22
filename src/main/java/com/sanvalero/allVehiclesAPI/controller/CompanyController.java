@@ -5,7 +5,6 @@ import com.sanvalero.allVehiclesAPI.domain.dto.CompanyDTO;
 import com.sanvalero.allVehiclesAPI.exception.CompanyNotFoundException;
 import com.sanvalero.allVehiclesAPI.service.company.CompanyService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -41,7 +40,7 @@ public class CompanyController {
             @ApiResponse(responseCode = "201", description = "Company registered", content = @Content(schema = @Schema(implementation = Company.class))),
             @ApiResponse(responseCode = "404", description = "Fail insert company", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PostMapping(value = "/allVehicles/company", produces = "application/json", consumes = "application/json")
+    @PostMapping(value = "/allvehicles/companies", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Company> addCompany(@RequestBody Company company){
         logger.info("[init addCompany]");
         Company addedCompany = companyService.addCompany(company);
@@ -54,14 +53,28 @@ public class CompanyController {
     @Operation(summary = "Get all companies")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Get information of all vehicle companies", content = @Content(schema = @Schema(implementation = Company.class))),
-            @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(array = @ArraySchema(schema= @Schema(implementation = Response.class))))
+            @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(schema= @Schema(implementation = Response.class)))
     })
-    @GetMapping(value = "/allVehicles/company", produces = "application/json")
+    @GetMapping(value = "/allvehicles/companies", produces = "application/json")
     public ResponseEntity<Set<Company>> getAllCompanies(){
         logger.info("[init getAllCompanies]");
         Set<Company> companies = companyService.findCompanies();
         logger.info("[end getAllCompanies]");
         return ResponseEntity.status(HttpStatus.OK).body(companies);
+    }
+
+    @Operation(summary = "Get company by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Get information of company", content = @Content(schema = @Schema(implementation = Company.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(schema= @Schema(implementation = Response.class)))
+    })
+    @GetMapping(value = "/allvehicles/companies/{id}", produces = "application/json")
+    public ResponseEntity<Company> getCompanyById(@PathVariable long id){
+        logger.info("[init getCompanyById]");
+        Company company = companyService.findCompanyById(id)
+                .orElseThrow(() -> new CompanyNotFoundException(id));
+        logger.info("[end getCompanyById]");
+        return ResponseEntity.status(HttpStatus.OK).body(company);
     }
 
     //****************************** PUT ********************************
@@ -70,7 +83,7 @@ public class CompanyController {
             @ApiResponse(responseCode = "200", description = "Modify all fields of a company", content = @Content(schema = @Schema(implementation = Company.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify company", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PutMapping(value = "/allVehicles/company/{id}", produces = "application/json", consumes = "application/json")
+    @PutMapping(value = "/allvehicles/companies/{id}", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Company> modifyCompany(@PathVariable long id, @RequestBody CompanyDTO companyDTO){
         logger.info("[init modifyCompany]");
         Company company = companyService.modifyCompany(id, companyDTO);
@@ -84,9 +97,9 @@ public class CompanyController {
             @ApiResponse(responseCode = "200", description = "Modify field shares stock of a company", content = @Content(schema = @Schema(implementation = Company.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify shares stock", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PatchMapping(value = "/allVehicles/company/{id}/change-sharesStock", produces = "application/json", consumes = "application/json")
+    @PatchMapping(value = "/allvehicles/companies/{id}/change-sharesstock", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Company> modifyCompanyBySharesStock(@PathVariable long id,
-                                                     @RequestParam(value = "sharesStock", defaultValue = "") float sharesStock){
+                                                              @RequestParam(value = "sharesstock", defaultValue = "") float sharesStock){
         logger.info("[init modifyCompanyBySharesStock]");
         Company company = companyService.modifyCompanyBySharesStock(id, sharesStock);
         logger.info("[end modifyCompanyBySharesStock]");
@@ -99,7 +112,7 @@ public class CompanyController {
             @ApiResponse(responseCode = "200", description = "Delete a company", content = @Content(schema = @Schema(implementation = Company.class))),
             @ApiResponse(responseCode = "404", description = "Fail deleting company", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @DeleteMapping(value = "/allVehicles/company/{id}")
+    @DeleteMapping(value = "/allvehicles/companies/{id}")
     public ResponseEntity<Response> deleteCompany(@PathVariable long id){
         logger.info("[init deleteCompany]");
         companyService.deleteCompany(id);

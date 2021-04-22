@@ -44,7 +44,7 @@ public class VehicleController {
             @ApiResponse(responseCode = "201", description = "Vehicle registered", content = @Content(schema = @Schema(implementation = Vehicle.class))),
             @ApiResponse(responseCode = "404", description = "Fail insert vehicle", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PostMapping(value = "/allVehicles/model/{id}/vehicle", produces = "application/json", consumes = "application/json")
+    @PostMapping(value = "/allvehicles/models/{id}/vehicles", produces = "application/json", consumes = "application/json")
     public ResponseEntity<Vehicle> addVehicle(@PathVariable long id, @RequestBody VehicleDTO vehicleDTO){
         logger.info("[init addVehicle]");
         Vehicle addedVehicle = vehicleService.addVehicle(id, vehicleDTO);
@@ -58,12 +58,26 @@ public class VehicleController {
             @ApiResponse(responseCode = "200", description = "Get information of all vehicles", content = @Content(schema = @Schema(implementation = Vehicle.class))),
             @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(array = @ArraySchema(schema= @Schema(implementation = Response.class))))
     })
-    @GetMapping(value = "/allVehicles/vehicle", produces = "application/json")
+    @GetMapping(value = "/allvehicles/vehicles", produces = "application/json")
     public ResponseEntity<Set<Vehicle>> getAllVehicles(){
         logger.info("[init getAllVehicles]");
         Set<Vehicle> vehicles = vehicleService.findVehicles();
         logger.info("[end getAllVehicles]");
         return ResponseEntity.status(HttpStatus.OK).body(vehicles);
+    }
+
+    @Operation(summary = "Get vehicle by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Get information of a vehicle", content = @Content(schema = @Schema(implementation = Vehicle.class))),
+            @ApiResponse(responseCode = "400", description = "Bad request", content = @Content(schema= @Schema(implementation = Response.class)))
+    })
+    @GetMapping(value = "/allvehicles/vehicles/{id}", produces = "application/json")
+    public ResponseEntity<Vehicle> getVehicleById(@PathVariable long id){
+        logger.info("[init getVehicleById]");
+        Vehicle vehicle = vehicleService.findVehicleById(id)
+                .orElseThrow(() -> new ModelNotFoundException(id));
+        logger.info("[end getVehicleById]");
+        return ResponseEntity.status(HttpStatus.OK).body(vehicle);
     }
 
     //****************************** PUT ********************************
@@ -72,8 +86,9 @@ public class VehicleController {
             @ApiResponse(responseCode = "200", description = "Modify all fields of a vehicle", content = @Content(schema = @Schema(implementation = Vehicle.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify vehicle", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PutMapping(value = "/allVehicles/vehicle/{id}", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<Vehicle> modifyVehicle(@PathVariable long id, @RequestBody VehicleDTO vehicleDTO){
+    @PutMapping(value = "/allvehicles/vehicles/{id}", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<Vehicle> modifyVehicle(@PathVariable long id,
+                                                 @RequestBody VehicleDTO vehicleDTO){
         logger.info("[init modifyVehicle]");
         Vehicle vehicle = vehicleService.modifyVehicle(id, vehicleDTO);
         logger.info("[end modifyVehicle]");
@@ -86,7 +101,7 @@ public class VehicleController {
             @ApiResponse(responseCode = "200", description = "Modify field price vehicle", content = @Content(schema = @Schema(implementation = Vehicle.class))),
             @ApiResponse(responseCode = "404", description = "Fail modify price vehicle", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @PatchMapping(value = "/allVehicles/vehicle/{id}/change-price", produces = "application/json")
+    @PatchMapping(value = "/allvehicles/vehicles/{id}/change-price", produces = "application/json")
     public ResponseEntity<Vehicle> modifyVehicleByPrice(@PathVariable long id,
                                                         @RequestParam(value = "price", defaultValue = "") float price){
         logger.info("[init modifyVehicleByPrice]");
@@ -101,7 +116,7 @@ public class VehicleController {
             @ApiResponse(responseCode = "200", description = "Delete a vehicle", content = @Content(schema = @Schema(implementation = Vehicle.class))),
             @ApiResponse(responseCode = "404", description = "Fail deleting vehicle", content = @Content(schema = @Schema(implementation = Response.class)))
     })
-    @DeleteMapping(value = "/allVehicles/vehicle/{id}")
+    @DeleteMapping(value = "/allvehicles/vehicles/{id}")
     public ResponseEntity<Response> deleteVehicle(@PathVariable long id){
         logger.info("[init deleteVehicle]");
         vehicleService.deleteVehicle(id);

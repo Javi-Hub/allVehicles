@@ -14,5 +14,5 @@ import java.util.Set;
 public interface CompanyRepository extends CrudRepository<Company, Long> {
 
     Set<Company> findAll();
-
+    
 }

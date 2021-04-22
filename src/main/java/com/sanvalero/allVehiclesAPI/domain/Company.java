@@ -2,7 +2,6 @@ package com.sanvalero.allVehiclesAPI.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jdk.dynalink.linker.LinkerServices;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -57,11 +56,11 @@ public class Company {
     private float sharesStock;
 
     @Schema(description = "Foundation date", example = "12/05/1920")
-    @JsonFormat(pattern = "dd/MM/yyy")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "foundation_date")
     private LocalDate foundationDate;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
     private List<Brand> brandList;
 
 }

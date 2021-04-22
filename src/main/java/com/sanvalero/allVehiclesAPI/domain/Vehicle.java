@@ -1,10 +1,12 @@
 package com.sanvalero.allVehiclesAPI.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -45,6 +47,7 @@ public class Vehicle {
     private float consumption;
 
     @Schema(description = "Market launch", example = "15/12/2005")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "market_launch")
     private LocalDate marketLaunch;
 
