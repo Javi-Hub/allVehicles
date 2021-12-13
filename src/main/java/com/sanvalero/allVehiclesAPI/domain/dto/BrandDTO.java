@@ -1,12 +1,10 @@
 package com.sanvalero.allVehiclesAPI.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 /**

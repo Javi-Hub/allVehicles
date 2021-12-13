@@ -24,7 +24,7 @@ public class AllVehiclesAPIConfig {
                         .contact(new Contact()
                                 .name("Javier")
                                 .email("javi@mail.com")
-                                .url("https://datos.codeandcoke.com"))
+                                .url("https://github.com/Javi-Hub/allVehicles.git"))
                         .version("1.0"));
     }
 
